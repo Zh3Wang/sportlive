@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        woshi wangzhe~~
+    </div>
+</body>
+<script>
+    var websocket = new WebSocket('ws://120.24.24.191:9502?uid=1')
+    
+    websocket.onopen = function(){
+        console.log("连接websocket服务器成功!")
+    }
+
+    websocket.onclose = function(){
+        console.log("断开websocket连接!")
+    }
+
+    websocket.onmessage = function(res){
+        console.log("接收到新消息:"+res.data)
+    }
+
+    websocket.onerror = function(res){
+        console.log("接收到新消息:"+res.data)
+    }
+
+    setTimeout(function(){
+        websocket.send('客户端连接成功')
+    },1000)
+
+</script>
+
+</html>
